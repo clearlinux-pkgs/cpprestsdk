@@ -4,7 +4,7 @@
 #
 Name     : cpprestsdk
 Version  : 2.10.6
-Release  : 2
+Release  : 3
 URL      : https://github.com/Microsoft/cpprestsdk/archive/v2.10.6.tar.gz
 Source0  : https://github.com/Microsoft/cpprestsdk/archive/v2.10.6.tar.gz
 Summary  : No detailed summary available
