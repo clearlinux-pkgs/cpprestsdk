@@ -4,7 +4,7 @@
 #
 Name     : cpprestsdk
 Version  : 2.10.6
-Release  : 3
+Release  : 4
 URL      : https://github.com/Microsoft/cpprestsdk/archive/v2.10.6.tar.gz
 Source0  : https://github.com/Microsoft/cpprestsdk/archive/v2.10.6.tar.gz
 Summary  : No detailed summary available
@@ -22,14 +22,6 @@ BuildRequires : zlib-dev
 %description
 ## Welcome!
 The C++ REST SDK is a Microsoft project for cloud-based client-server communication in native code using a modern asynchronous C++ API design. This project aims to help C++ developers connect to and interact with services.
-
-%package abi
-Summary: abi components for the cpprestsdk package.
-Group: Default
-
-%description abi
-abi components for the cpprestsdk package.
-
 
 %package dev
 Summary: dev components for the cpprestsdk package.
@@ -66,7 +58,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542391887
+export SOURCE_DATE_EPOCH=1542692614
 mkdir -p clr-build
 pushd clr-build
 %cmake ../Release
@@ -74,7 +66,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1542391887
+export SOURCE_DATE_EPOCH=1542692614
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cpprestsdk
 cp Release/tests/common/UnitTestpp/COPYING %{buildroot}/usr/share/package-licenses/cpprestsdk/Release_tests_common_UnitTestpp_COPYING
@@ -88,10 +80,6 @@ popd
 /usr/lib/cpprestsdk/cpprestsdk-config.cmake
 /usr/lib/cpprestsdk/cpprestsdk-targets-relwithdebinfo.cmake
 /usr/lib/cpprestsdk/cpprestsdk-targets.cmake
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libcpprest.so.2.10.abi
 
 %files dev
 %defattr(-,root,root,-)
