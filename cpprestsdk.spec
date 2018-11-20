@@ -4,7 +4,7 @@
 #
 Name     : cpprestsdk
 Version  : 2.10.6
-Release  : 4
+Release  : 5
 URL      : https://github.com/Microsoft/cpprestsdk/archive/v2.10.6.tar.gz
 Source0  : https://github.com/Microsoft/cpprestsdk/archive/v2.10.6.tar.gz
 Summary  : No detailed summary available
@@ -58,7 +58,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542692614
+export SOURCE_DATE_EPOCH=1542735151
 mkdir -p clr-build
 pushd clr-build
 %cmake ../Release
@@ -66,7 +66,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1542692614
+export SOURCE_DATE_EPOCH=1542735151
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cpprestsdk
 cp Release/tests/common/UnitTestpp/COPYING %{buildroot}/usr/share/package-licenses/cpprestsdk/Release_tests_common_UnitTestpp_COPYING
