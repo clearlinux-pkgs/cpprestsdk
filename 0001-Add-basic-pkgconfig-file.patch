@@ -1,0 +1,29 @@
+From f997930a0c0a53764986bd8255947264aaaa11ba Mon Sep 17 00:00:00 2001
+From: Auke Kok <auke-jan.h.kok@intel.com>
+Date: Wed, 8 May 2019 10:06:24 -0700
+Subject: [PATCH] Add basic pkgconfig file.
+
+---
+ cpprest.pc | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100644 cpprest.pc
+
+diff --git a/cpprest.pc b/cpprest.pc
+new file mode 100644
+index 0000000..5b72754
+--- /dev/null
++++ b/cpprest.pc
+@@ -0,0 +1,10 @@
++prefix=/usr
++exec_prefix=/usr
++includedir=/usr/include
++libdir=/usr/lib64
++
++Name: cpprest
++Description: Asynchronous C++ REST API
++Version: 2.10
++Cflags: -I${includedir}
++Libs: -L${libdir} -lcpprest
+-- 
+2.21.0
+
