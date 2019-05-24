@@ -1,4 +1,5 @@
 mkdir -p %{buildroot}/usr/lib64/pkgconfig
 install cpprest.pc %{buildroot}/usr/lib64/pkgconfig/
 mkdir -p %{buildroot}/usr/share/cmake/Modules
-mv %{buildroot}/usr/lib64/cpprestsdk/ %{buildroot}/usr/share/cmake/Modules/
+mv %{buildroot}/usr/lib64/cpprestsdk/* %{buildroot}/usr/share/cmake/Modules/
+rmdir %{buildroot}/usr/lib64/cpprestsdk

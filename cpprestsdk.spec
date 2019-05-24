@@ -4,7 +4,7 @@
 #
 Name     : cpprestsdk
 Version  : 2.10.13
-Release  : 7
+Release  : 8
 URL      : https://github.com/Microsoft/cpprestsdk/archive/v2.10.13.tar.gz
 Source0  : https://github.com/Microsoft/cpprestsdk/archive/v2.10.13.tar.gz
 Source1  : https://github.com/zaphoyd/websocketpp/archive/0.8.1.zip
@@ -80,16 +80,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557337781
+export SOURCE_DATE_EPOCH=1558715420
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ../Release -DWERROR=0
 make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557337781
+export SOURCE_DATE_EPOCH=1558715420
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cpprestsdk
 cp Release/tests/common/UnitTestpp/COPYING %{buildroot}/usr/share/package-licenses/cpprestsdk/Release_tests_common_UnitTestpp_COPYING
@@ -101,7 +105,8 @@ popd
 mkdir -p %{buildroot}/usr/lib64/pkgconfig
 install cpprest.pc %{buildroot}/usr/lib64/pkgconfig/
 mkdir -p %{buildroot}/usr/share/cmake/Modules
-mv %{buildroot}/usr/lib64/cpprestsdk/ %{buildroot}/usr/share/cmake/Modules/
+mv %{buildroot}/usr/lib64/cpprestsdk/* %{buildroot}/usr/share/cmake/Modules/
+rmdir %{buildroot}/usr/lib64/cpprestsdk
 ## install_append end
 
 %files
