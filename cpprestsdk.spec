@@ -4,7 +4,7 @@
 #
 Name     : cpprestsdk
 Version  : 2.10.13
-Release  : 8
+Release  : 9
 URL      : https://github.com/Microsoft/cpprestsdk/archive/v2.10.13.tar.gz
 Source0  : https://github.com/Microsoft/cpprestsdk/archive/v2.10.13.tar.gz
 Source1  : https://github.com/zaphoyd/websocketpp/archive/0.8.1.zip
