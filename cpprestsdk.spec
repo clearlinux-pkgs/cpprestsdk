@@ -4,7 +4,7 @@
 #
 Name     : cpprestsdk
 Version  : 2.10.15
-Release  : 10
+Release  : 11
 URL      : https://github.com/Microsoft/cpprestsdk/archive/v2.10.15/cpprestsdk-2.10.15.tar.gz
 Source0  : https://github.com/Microsoft/cpprestsdk/archive/v2.10.15/cpprestsdk-2.10.15.tar.gz
 Source1  : https://github.com/zaphoyd/websocketpp/archive/0.8.1.zip
@@ -22,6 +22,7 @@ BuildRequires : pkgconfig(libbrotlidec)
 BuildRequires : pkgconfig(libbrotlienc)
 BuildRequires : zlib-dev
 Patch1: 0001-Add-basic-pkgconfig-file.patch
+Patch2: 0002-Fix-build-for-boost.patch
 
 %description
 ## Welcome!
@@ -63,13 +64,14 @@ cd %{_builddir}/cpprestsdk-2.10.15
 mkdir -p Release/libs/websocketpp
 cp -r %{_builddir}/websocketpp-0.8.1/* %{_builddir}/cpprestsdk-2.10.15/Release/libs/websocketpp
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583972272
+export SOURCE_DATE_EPOCH=1583975211
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -82,7 +84,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583972272
+export SOURCE_DATE_EPOCH=1583975211
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cpprestsdk
 cp %{_builddir}/cpprestsdk-2.10.15/Release/tests/common/UnitTestpp/COPYING %{buildroot}/usr/share/package-licenses/cpprestsdk/7f0b619493b3b95f23f04910efbcc21aaaba0ac6

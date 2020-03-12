@@ -1,4 +1,4 @@
-From f997930a0c0a53764986bd8255947264aaaa11ba Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Auke Kok <auke-jan.h.kok@intel.com>
 Date: Wed, 8 May 2019 10:06:24 -0700
 Subject: [PATCH] Add basic pkgconfig file.
@@ -24,6 +24,3 @@ index 0000000..5b72754
 +Version: 2.10
 +Cflags: -I${includedir}
 +Libs: -L${libdir} -lcpprest
--- 
-2.21.0
-
