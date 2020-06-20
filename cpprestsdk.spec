@@ -4,7 +4,7 @@
 #
 Name     : cpprestsdk
 Version  : 2.10.15
-Release  : 11
+Release  : 12
 URL      : https://github.com/Microsoft/cpprestsdk/archive/v2.10.15/cpprestsdk-2.10.15.tar.gz
 Source0  : https://github.com/Microsoft/cpprestsdk/archive/v2.10.15/cpprestsdk-2.10.15.tar.gz
 Source1  : https://github.com/zaphoyd/websocketpp/archive/0.8.1.zip
@@ -71,20 +71,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583975211
+export SOURCE_DATE_EPOCH=1592617751
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ../Release -DWERROR=0
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583975211
+export SOURCE_DATE_EPOCH=1592617751
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cpprestsdk
 cp %{_builddir}/cpprestsdk-2.10.15/Release/tests/common/UnitTestpp/COPYING %{buildroot}/usr/share/package-licenses/cpprestsdk/7f0b619493b3b95f23f04910efbcc21aaaba0ac6
